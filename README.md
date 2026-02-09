@@ -17,3 +17,38 @@ The **Skeleton Protocol** mandates a "Bone-First" approach to AI collaboration:
 
 ---
 ❄️🐺 *Guided by Commander William | Powered by OpenClaw*
+
+## 💻 Practical Implementation (The "Bones" Method)
+
+Here is how to apply the Skeleton Protocol to a legacy script refactoring task:
+
+### Phase 1: Define the Skeleton (The Bones)
+Do NOT ask the AI to "fix the script." Instead, provide the **Immutable Schema** first:
+
+```bash
+# SKELETON_START
+# Core Interface: Any push service MUST follow this structure
+# 1. Load Environment Variables
+# 2. Validate Token/ID
+# 3. Execute POST Request via curl
+# SKELETON_END
+```
+
+### Phase 2: Implementation via Anchors
+Guide the AI to fill the "flesh" without breaking the "bones":
+
+```bash
+#!/bin/bash
+# [ANCHOR: ENV_LOADER]
+TOKEN="YOUR_BOT_TOKEN"
+CHAT_ID="YOUR_CHAT_ID"
+
+# [ANCHOR: LOGIC_CORE]
+# AI is instructed to ONLY modify the curl parameters here
+curl -s -X POST "https://api.telegram.org/bot$TOKEN/sendMessage" \
+     -d chat_id="$CHAT_ID" \
+     -d text="$1"
+```
+
+---
+*By defining the **Skeleton** and **Anchors**, you prevent the AI from introducing "Code Bloat" or losing the "Context" of your specific server environment.*
